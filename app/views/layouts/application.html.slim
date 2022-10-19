@@ -11,15 +11,16 @@ html
   body
     .app-title.navbar.navbar-expand-md.navbar-light
     
-    .container
-		header.d-flex.justify-content-between 
-			.title  
-				h1 トマカリ
-			.buttons
-				button.btn.btn-primary  ホストをする
-				button.btn.btn-primary  ログインする
-				button.btn.btn-secondary  登録する
-		p = yield
+    / .container
+  header.d-flex.justify-content-between 
+    .title  
+      h1 トマカリ
+    .buttons
+      button.btn.btn-primary  ホストをする
+      button.btn.btn-primary  ログインする
+      button.btn.btn-secondary  登録する 
+  .top_container 
+    = yield
 	footer 
 			div 
 				h3 @2022 トマカリ
