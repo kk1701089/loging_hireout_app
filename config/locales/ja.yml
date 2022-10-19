@@ -1,0 +1,8 @@
+ja:
+  activerecord:
+    attributes:
+			host:
+				room_name: "ルーム名"
+				room_introduction: "ルーム紹介"
+				room_charge: "ルーム料金"
+				room_address: "メールアドレス"
