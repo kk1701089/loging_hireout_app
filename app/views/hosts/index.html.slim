@@ -1,2 +1,15 @@
-h1 Hosts#index
-p Find me in app/views/hosts/index.html.slim
+h1 登録した宿泊先一覧
+.mb-3 
+table.table.table-hover 
+	thead.thead-default 
+		tr 
+			th = "ルーム名"
+			th = "登録日時"
+		tbody 
+			- @hosts.each do |host|
+			tr 
+				td = host.room_name 
+				td = host.created_at 
+
+
+
