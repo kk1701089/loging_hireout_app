@@ -7,5 +7,13 @@ h1 ホストになる
 	.form-group 
 		= f.label :room_introduction,"ルーム紹介"
 		= f.text_area :room_introduction, rows:5, class: 'form-control', id: 'host_room_introduction'
+	.form-group 
+		= f.label :room_charge,"ルーム料金"
+		= f.text_field :room_charge, class: 'form-control', id: 'host_room_charge'
+	.form-group 
+		= f.label :room_address,"住所"
+		= f.text_field :room_address, class: 'form-control', id: 'host_room_address'
+
+
 	= f.submit "登録する", class: 'btn btn-primary'
 
