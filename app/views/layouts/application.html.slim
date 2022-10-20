@@ -12,14 +12,17 @@ html
     .app-title.navbar.navbar-expand-md.navbar-light
     
     / .container
-  header.d-flex.justify-content-between 
+  header.d-flex.justify-content-between   
     .title  
-      h1 トマカリ
-    .buttons
-      button.btn.btn-primary  ホストをする
+      = link_to "トマカリ",tops_search_path, class: 'navbar-brand'
+    .d-flex.justify-content-between 
+      = link_to "ホストをする",new_host_path, class: 'btn btn-primary'
       button.btn.btn-primary  ログインする
       button.btn.btn-secondary  登録する 
   .top_container 
+    / nilや空白ではないnoticeのフラッシュメッセージがあれば表示する
+    - if flash.notice.present?
+      .alert.alert-succes = flash.notice 
     = yield
 	footer 
 			div 
