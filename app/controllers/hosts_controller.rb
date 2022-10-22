@@ -21,6 +21,6 @@ class HostsController < ApplicationController
 
   private
   def host_params
-    params.require(:host).permit(:room_name,:room_introduction,:room_charge,:room_address)
+    params.require(:host).permit(:room_name,:room_introduction,:image,:room_charge,:room_address)
   end
 end
