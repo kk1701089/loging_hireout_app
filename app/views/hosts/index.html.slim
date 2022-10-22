@@ -5,11 +5,14 @@ table.table.table-hover
 		tr 
 			th = "ルーム名"
 			th = "登録日時"
+			th = "ルーム写真"
 		tbody 
 			- @hosts.each do |host|
-			tr 
-				td = host.room_name 
-				td = host.created_at 
+				tr 
+					td = host.room_name 
+					td = host.room_introduction 
+					td = image_tag host.image if host.image.attached?
+
 
 
 
