@@ -8,6 +8,9 @@ h1 ホストになる
 		= f.label :room_introduction,"ルーム紹介"
 		= f.text_area :room_introduction, rows:5, class: 'form-control', id: 'host_room_introduction'
 	.form-group 
+		= f.label :image,"ルーム画像"
+		= f.file_field :image, class: 'form-control'
+	.form-group 
 		= f.label :room_charge,"ルーム料金"
 		= f.text_field :room_charge, class: 'form-control', id: 'host_room_charge'
 	.form-group 
