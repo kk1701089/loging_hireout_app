@@ -3,14 +3,12 @@
 	img.image src="/assets/hokaido-.jpeg" alt="背景画像２"/ 
 	img.image src="/assets/東京フリー.jpeg" alt="背景画像３"/ 
 
-= render "shared/partial"
-
 / 検索フォーム
-/ h2 エリアを検索
-/ = search_form_for @q, class: 'mb-5' do |f|
-/   / = binding.pry 
-/   .form-group.row  
-/     / room_addressカラムに対して部分一致検索
-/     = f.search_field :room_address_cont, class: 'form-control'
-/   .form-group 
-/     = f.submit class: 'btn btn-secondary' 
+h2 エリアを検索
+= search_form_for @q, class: 'mb-5' do |f|
+  / = binding.pry 
+  .form-group.row  
+    / room_addressカラムに対して部分一致検索
+    = f.search_field :room_address_cont, class: 'form-control'
+  .form-group 
+    = f.submit class: 'btn btn-secondary' 
