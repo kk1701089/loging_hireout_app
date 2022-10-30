@@ -11,7 +11,7 @@ table.table.table-hover
 				tr 
 					td = host.room_name 
 					td = host.room_introduction 
-					td = image_tag host.image if host.image.attached?
+					td = image_tag host.image, class: "host_image" if host.image.attached?
 
 
 
