@@ -5,8 +5,7 @@
 
 / 検索フォーム
 h2 エリアを検索
-= search_form_for @q, class: 'mb-5' do |f|
-  / = binding.pry 
+= search_form_for @q, url: rooms_search_path, class: 'mb-5' do |f|
   .form-group.row  
     / room_addressカラムに対して部分一致検索
     = f.search_field :room_address_cont, class: 'form-control'
