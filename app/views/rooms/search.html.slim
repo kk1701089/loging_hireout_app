@@ -1,0 +1,15 @@
+h1 検索結果
+.mb-3 
+table.table.table-hover 
+	thead.thead-default 
+		tr 
+			th = "ルーム名"
+			th = "登録日時"
+			th = "ルーム写真"
+		tbody 
+			- @rooms.each do |room|
+				tr 
+					td = room.room_name 
+					td = room.room_introduction 
+					td = image_tag room.image, class: "host_image" if room.image.attached?
+
