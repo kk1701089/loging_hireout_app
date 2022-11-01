@@ -11,3 +11,11 @@ h2 エリアを検索
     = f.search_field :room_address_cont, class: 'form-control'
   .form-group 
     = f.submit class: 'btn btn-secondary' 
+
+h2 フリーワード検索
+= search_form_for @q, url: rooms_search_path, class: 'mb-5' do |f|
+  .form-group.row  
+    / すべてのカラムに対して部分一致検索
+    = f.search_field :room_name_or_room_introduction_or_room_address_or_room_charge_cont, class: 'form-control'
+  .form-group 
+    = f.submit class: 'btn btn-secondary' 
