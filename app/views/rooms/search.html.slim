@@ -4,12 +4,12 @@ table.table.table-hover
 	thead.thead-default 
 		tr 
 			th = "ルーム名"
-			th = "登録日時"
+			th = "ルーム料金"
 			th = "ルーム写真"
 		tbody 
 			- @rooms.each do |room|
 				tr 
 					td = room.room_name 
-					td = room.room_introduction 
+					td = room.room_charge 
 					td = image_tag room.image, class: "host_image" if room.image.attached?
 
