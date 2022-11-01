@@ -1,12 +1,10 @@
 Rails.application.routes.draw do
   # ログイン関連のルーティング
-  get '/login', to: 'sessions/new'
+  get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
+
   # usersに関するルーティング
-  get 'users/index'
-  get 'users/show'
-  get 'users/new'
-  get 'users/edit'
+  resources :users
 
   # トップページを表示するルーティング
   root 'rooms#index'
