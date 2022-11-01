@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
+  # usersに関するルーティング
+  get 'users/index'
+  get 'users/show'
+  get 'users/new'
+  get 'users/edit'
+
   # トップページを表示するルーティング
   root 'rooms#index'
-  
+  # roomsに関するルーティング
   get 'rooms/index'
   get 'rooms/search'
   get 'rooms/show'
