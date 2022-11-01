@@ -18,7 +18,7 @@ html
     .d-flex.justify-content-between 
       = link_to "ホストをする",new_host_path, class: 'btn btn-primary'
       button.btn.btn-primary  ログインする
-      button.btn.btn-secondary  登録する 
+      = link_to "登録する",users_new_path, class: 'btn btn-primary'
   .top_container 
     / nilや空白ではないnoticeのフラッシュメッセージがあれば表示する
     - if flash.notice.present?
