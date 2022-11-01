@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  # ログイン関連のルーティング
+  get '/login', to: 'sessions/new'
+  post '/login', to: 'sessions#create'
   # usersに関するルーティング
   get 'users/index'
   get 'users/show'
