@@ -6,6 +6,8 @@ class UsersController < ApplicationController
   end
 
   def new
+    # Userクラスをインスタンス化
+    @user = User.new
   end
 
   def edit
