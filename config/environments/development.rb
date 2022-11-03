@@ -61,7 +61,8 @@ Rails.application.configure do
 
   # 一日ごとにログを記録する
   config.logger = Logger.new('log/development.log','daily')
-
+  # ログレベル’’警告以上のものを出力する
+  config.log_level = :warn
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
 
