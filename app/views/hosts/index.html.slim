@@ -8,6 +8,7 @@ table.table.table-hover
 			th = "ルーム写真"
 		tbody 
 			- @hosts.each do |host|
+			= binding.pry 
 				tr 
 					td = host.room_name 
 					td = host.room_introduction 
