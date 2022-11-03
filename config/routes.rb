@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  # 借りる機能に関するルーティング
+  resources :rentals
   # ログイン関連のルーティング
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
