@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   def create
     # privateメソッドにより安全化されたuserパラメーターをuser_paramsメソッドで取得して、Userオブジェクトを作成する
     @user = User.new(user_params)
-    binding.pry
+    # binding.pry
     # save!メソッドでデータベースに登録
     @user.save!
     # トップ画面に遷移

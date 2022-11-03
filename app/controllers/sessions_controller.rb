@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
   end
 
   private
-  # 送られてきたパラメーターを安全化
+  # emailカラムとpasswordカラムだけデータベースに保存
     def session_params
       params.require(:session).permit(:email, :password)
     end
