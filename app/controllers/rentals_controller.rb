@@ -3,9 +3,11 @@ class RentalsController < ApplicationController
   end
 
   def new
+    @rental = Rental.new
   end
 
   def show
+    @rental = Host.find(params[:id])
   end
 
   def edit
