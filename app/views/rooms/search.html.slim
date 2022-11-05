@@ -1,15 +1,16 @@
 h1 検索結果
 .mb-3 
 table.table.table-hover 
-	thead.thead-default 
-		tr 
-			th = "ルーム名"
-			th = "ルーム料金"
-			th = "ルーム写真"
-		tbody 
-			- @rooms.each do |room|
-				tr 
-					td = room.room_name 
-					td = room.room_charge 
-					td = image_tag room.image, class: "host_image" if room.image.attached?
+  thead.thead-default 
+    tr 
+      th = "ルーム名"
+      th = "ルーム料金"
+      th = "ルーム写真"
+    tbody 
+      - @rooms.each do |room| 
+        tr
+          td = link_to(room.room_name, room_path(room), class:"search_list")
+          td = link_to(room.room_charge, room_path(room), class:"search_list") 
+          - if room.image.attached?
+            td = image_tag room.image, class: "host_image" 
 
