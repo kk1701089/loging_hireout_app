@@ -12,9 +12,10 @@ Rails.application.routes.draw do
   # トップページを表示するルーティング
   root 'rooms#index'
   # roomsに関するルーティング
+  
   get 'rooms/index'
   get 'rooms/search'
-  get 'rooms/show'
+  get 'rooms/:id', to: 'rooms#show', as: 'room'
   get 'rooms/new'
   get 'rooms/edit'
 
