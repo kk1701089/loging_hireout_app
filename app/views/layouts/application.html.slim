@@ -9,25 +9,27 @@ html
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_importmap_tags
   body
-    .app-title.navbar.navbar-expand-md.navbar-light
-    
-    / .container
-  header.d-flex.justify-content-between   
-    .title  
-      = link_to "トマカリ",root_path, class: 'navbar-brand'
-    .d-flex.justify-content-between 
-      - if current_user  
-        = link_to "ホストをする",new_host_path, class: 'btn btn-primary'
-        = link_to "ログアウトする",logout_path, data: { turbo_method: :delete }, class: 'btn btn-primary'
-        = link_to "登録する",new_user_path, class: 'btn btn-primary'
-      - else 
-        = link_to "ログインする",login_path, class: 'btn btn-primary'
-        = link_to "登録する",new_user_path, class: 'btn btn-primary'
-  .top_container 
-    / nilや空白ではないnoticeのフラッシュメッセージがあれば表示する
-    - if flash.notice.present?
-      .alert.alert-succes = flash.notice 
-    = yield
-	footer 
-			div 
-				h3 @2022 トマカリ
+    nav.navbar.navbar-light
+      / - if @rental.errors.present?
+      /   ul#error_explanation 
+      /     - @rental.errors.full_messages.each do |messege|
+      /       li = messege 
+      .d-flex.justify-content-between.align-items-center 
+        = image_tag 'ホームアイコン.svg', class: 'image_title d-inline-block align-text-top'
+        = link_to "トマカリ",root_path, class: 'navbar navbar-brand mb-0 h1'
+      .d-flex.justify-content-between 
+        - if current_user    
+          = link_to "ホストをする",new_host_path, class: 'btn btn-outline-primary'
+          = link_to "ログアウトする",logout_path, data: { turbo_method: :delete }, class: 'btn btn-outline-primary'
+          = link_to "登録する",new_user_path, class: 'btn btn-outline-primary'
+        - else 
+          = link_to "ログインする",login_path, class: 'btn btn-outline-primary'
+          = link_to "登録する",new_user_path, class: 'btn btn-outline-primary'
+    .top_container 
+      / nilや空白ではないnoticeのフラッシュメッセージがあれば表示する
+      - if flash.notice.present?
+        .alert.alert-succes = flash.notice 
+      = yield
+      footer.py-5.text-center 
+          div 
+            h3 @2022 トマカリ
