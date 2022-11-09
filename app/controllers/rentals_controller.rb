@@ -8,9 +8,8 @@ class RentalsController < ApplicationController
   end
 
   def confirm
-    binding.pry
     @rentals = Rental.new(rental_params)
-    binding.pry
+    # binding.pry
     # valid?はエラーがあればfalseを返す
     # unlessはfalseの時に実行される
     render :new unless @rentals.valid?
