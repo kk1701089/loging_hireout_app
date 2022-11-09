@@ -14,7 +14,7 @@
       .charge_form.m-4 
         h4.text-center = "¥#{@room.room_charge}/日"
       .rental_form 
-        = form_with model: @rentals, local: true, url: confirm_new_rental_url do |f|
+        = form_with model: Rental.new, local: true, url: rentals_confirm_path do |f|
           .form-group.mb-5
             = f.label :rent_start_day, "宿泊開始日"
             = f.date_field :rent_start_day, class: 'form-control'
@@ -24,5 +24,5 @@
           .form-group.mb-5 
             = f.label :people, "人数"
             = f.select :people, [["1",1],["2",2],["3",3],["4",4],["5",5],["6",6],["7",7],["8",8],["9",9],["10",10]],{selected: 1},{class: 'form-control'}
-          = f.submit "予約する", class: 'btn btn-primary'
+          = f.submit "予約内容確認", class: 'btn btn-primary'
 
