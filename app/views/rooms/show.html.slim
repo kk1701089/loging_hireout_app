@@ -1,5 +1,6 @@
 .conteiner  
   h1 宿泊先予約画面
+  = render "shared/error", obj:@rentals
   .row 
     .col-8 
       div 
@@ -14,7 +15,7 @@
       .charge_form.m-4 
         h4.text-center = "¥#{@room.room_charge}/日"
       .rental_form 
-        = form_with model: Rental.new, local: true, url: rentals_confirm_path do |f|
+        = form_with model: Rental.new, local: true, url: rentals_confirm_path, data: { turbo: false } do |f|
           .form-group.mb-5
             = f.label :rent_start_day, "宿泊開始日"
             = f.date_field :rent_start_day, class: 'form-control'
@@ -24,5 +25,9 @@
           .form-group.mb-5 
             = f.label :people, "人数"
             = f.select :people, [["1",1],["2",2],["3",3],["4",4],["5",5],["6",6],["7",7],["8",8],["9",9],["10",10]],{selected: 1},{class: 'form-control'}
+          = f.hidden_field :id, :value => @room.id
+          = f.hidden_field :rent_room_name, :value => @room.room_name
+          = f.hidden_field :rent_room_intro, :value => @room.room_introduction
+          = f.hidden_field :rent_room_charge, :value => @room.room_charge
           = f.submit "予約内容確認", class: 'btn btn-primary'
 
