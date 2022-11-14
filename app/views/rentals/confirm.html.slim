@@ -1,1 +1,28 @@
-h1 kk 
+h1 登録内容の確認
+/ エラーメッセージ
+- if @rentals&.errors&.any?
+  ul#error_explanation 
+    - @rentals.errors.full_messages.each do |messege|
+      li = messege 
+.rental_form 
+  = form_with model: @rentals, local: true, data: { turbo: false } do |f|
+    table.table.table-hover 
+      tbohy 
+        tr 
+          th = "宿泊開始日"
+          td = @rentals.rent_start_day.strftime("%Y-%m-%d")
+          = f.hidden_field :rent_start_day
+        tr 
+          th = "宿泊終了日"
+          td = @rentals.rent_end_day.strftime("%Y-%m-%d")
+          = f.hidden_field :rent_end_day
+        tr 
+          th = "人数"
+          td = @rentals.people
+          = f.hidden_field :people
+        tr 
+          th = "合計金額"
+          td = @rentals.rent_room_charge * @rentals.people * (@rentals.rent_end_day.strftime("%d").to_i - @rentals.rent_start_day.strftime("%d").to_i)
+          = f.hidden_field :rent_room_charge
+    = f.submit "戻る", name: 'back', class: 'btn btn-primary'
+    = f.submit "予約する", class: 'btn btn-primary'
