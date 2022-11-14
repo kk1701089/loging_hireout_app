@@ -1,0 +1,6 @@
+/ エラーメッセージ
+- if obj&.errors&.any? 
+= binding.pry 
+  ul 
+    - obj.errors.full_messages.each do |message|
+      li = message 
