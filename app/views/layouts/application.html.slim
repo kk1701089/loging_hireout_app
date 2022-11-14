@@ -10,10 +10,6 @@ html
     = javascript_importmap_tags
   body
     nav.navbar.navbar-light
-      / - if @rental.errors.present?
-      /   ul#error_explanation 
-      /     - @rental.errors.full_messages.each do |messege|
-      /       li = messege 
       .d-flex.justify-content-between.align-items-center 
         = image_tag 'ホームアイコン.svg', class: 'image_title d-inline-block align-text-top'
         = link_to "トマカリ",root_path, class: 'navbar navbar-brand mb-0 h1'
