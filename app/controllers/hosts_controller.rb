@@ -1,4 +1,7 @@
 class HostsController < ApplicationController
+  # logged_in_userをnewとcreateの前に作動させることによりログインしているかチェックしている
+  before_action :logged_in_user, only:[:new, :create]
+
   def index
     @hosts = Host.all
   end
