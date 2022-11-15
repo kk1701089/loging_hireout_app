@@ -1,4 +1,7 @@
 class RentalsController < ApplicationController
+
+  before_action :logged_in_user, only:[:new, :confirm, :create]
+
   def index
   end
 
