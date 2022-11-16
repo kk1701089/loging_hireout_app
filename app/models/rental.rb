@@ -1,5 +1,8 @@
 class Rental < ApplicationRecord
 
+  # userモデルと結びつける
+  belongs_to :user
+  
   # 開始日を検証
   validates :rent_start_day, presence: true #開始日がnillの場合はこっちの検証
 
