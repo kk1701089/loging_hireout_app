@@ -1,8 +1,10 @@
 class RentalsController < ApplicationController
 
-  before_action :logged_in_user, only:[:new, :confirm, :create]
+  before_action :logged_in_user, only:[:index, :new, :confirm, :create]
 
   def index
+    @rental = current_user.rentals
+    binding.pry
   end
 
   def new
@@ -11,24 +13,33 @@ class RentalsController < ApplicationController
   end
 
   def confirm
-    @rentals = Rental.new(rental_params)
-    @room = Host.find(@rentals[:id])
+    @rentals = current_user.rentals.new(rental_params)
+    @room = Host.find(params[:id])
     binding.pry
     # valid?はエラーがあればfalseを返す
     unless @rentals.valid?
-      binding.pry
       # 入力前の画面に戻す
       render "rooms/show"
     end
   end
 
   def create
-    @rentals = Rental.new(rental_params)
-    @room = Host.find(@rentals[:id])
+    @rentals = current_user.rentals.new(rental_params)
+    # renderで遷移するrooms/showに渡すインスタンス変数を定義する
+    @room = Host.find(params[:id])
+    binding.pry
+
+    # 戻るボタンが押された時の処理
+    if params[:back].present?
+      render "rooms/show"
+      return
+    end
+
     if @rentals.save
       binding.pry
-      redirect_to @rentals, notice: "予約が完了しました。"
+      redirect_to rentals_path, notice: "予約が完了しました。"
     else
+      binding.pry
       render "rooms/show"
     end
   end
