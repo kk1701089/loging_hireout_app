@@ -6,3 +6,10 @@ ja:
         room_introduction: ルーム紹介
         room_charge: ルーム料金
         room_address: 住所
+      rental:
+        rent_room_name: ルーム名
+        rent_room_intro: ルーム紹介
+        rent_start_day: 宿泊開始日
+        rent_end_day: 宿泊終了日
+        people: 人数
+        rent_room_charge: 料金
