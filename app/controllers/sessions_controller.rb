@@ -12,7 +12,6 @@ class SessionsController < ApplicationController
     if user&.authenticate(session_params[:password])
       # 認証に成功した場合ユーザーidをセッションに格納
       session[:user_id] = user.id
-      binding.pry
       redirect_to root_path, notice: 'ログインしました'
     else
       render :new, notice: 'ログインに失敗しました'
