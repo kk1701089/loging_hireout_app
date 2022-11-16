@@ -4,15 +4,18 @@ table.table.table-hover
 	thead.thead-default 
 		tr 
 			th = "ルーム名"
+			th = "ルーム紹介"
+			th = "ルーム料金"
 			th = "登録日時"
 			th = "ルーム写真"
-		tbody 
-			- @hosts.each do |host|
-			= binding.pry 
-				tr 
-					td = host.room_name 
-					td = host.room_introduction 
-					td = image_tag host.image, class: "host_image" if host.image.attached?
+	tbody 
+		- @hosts.each do |host|
+			tr 
+				td = host.room_name 
+				td = host.room_introduction 
+				td = host.room_charge 
+				td = host.created_at.strftime("%Y-%m-%d")
+				td = image_tag host.image, class: "host_image" if host.image.attached?
 
 
 
