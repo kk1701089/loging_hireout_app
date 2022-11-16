@@ -1,2 +1,18 @@
-h1 Rentals#index
-p Find me in app/views/rentals/index.html.slim
+h1 予約した宿泊先一覧
+.mb-3 
+table.table.table-hover 
+	thead.thead-default 
+		tr 
+			th = "ルーム名"
+			th = "ルーム紹介"
+			th = "ルーム料金"
+			th = "宿泊開始日"
+			th = "宿泊終了日"
+	tbody 
+		- @rental.each do |rental|
+			tr 
+				td = rental.rent_room_name 
+				td = rental.rent_room_intro
+				td = rental.rent_room_charge 
+				td = rental.rent_start_day.strftime("%Y-%m-%d")
+				td = rental.rent_end_day.strftime("%Y-%m-%d")
