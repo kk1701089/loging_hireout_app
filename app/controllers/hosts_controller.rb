@@ -1,9 +1,9 @@
 class HostsController < ApplicationController
-  # logged_in_userをnewとcreateの前に作動させることによりログインしているかチェックしている
-  before_action :logged_in_user, only:[:new, :create]
+  # logged_in_userをindexとnewとcreateの前に作動させることによりログインしているかチェックしている
+  before_action :logged_in_user, only:[:index,:new, :create]
 
   def index
-    @hosts = Host.all
+    @hosts = current_user.hosts
   end
 
   def show
@@ -14,9 +14,12 @@ class HostsController < ApplicationController
   end
 
   def create
-    host = Host.new(host_params)
-    host.save!
-    redirect_to hosts_url, notice: "ホストとして物件を登録することができました。"
+    @host = current_user.hosts.new(host_params)
+    if @host.save
+      redirect_to hosts_path, notice: "ホストとして物件を登録することができました。"
+    else
+      render :new
+    end
   end
 
   def edit
