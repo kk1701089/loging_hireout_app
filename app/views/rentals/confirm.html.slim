@@ -1,11 +1,6 @@
 h1 登録内容の確認
-/ エラーメッセージ
-- if @rentals&.errors&.any?
-  ul#error_explanation 
-    - @rentals.errors.full_messages.each do |messege|
-      li = messege 
 .rental_form 
-  = form_with model: @rentals, local: true, data: { turbo: false } do |f|
+  = form_with model: @rentals, local: true, url: create_rental_path, data: { turbo: false } do |f|
     table.table.table-hover 
       tbohy 
         tr 
@@ -19,10 +14,13 @@ h1 登録内容の確認
         tr 
           th = "人数"
           td = @rentals.people
-          = f.hidden_field :people
         tr 
           th = "合計金額"
           td = @rentals.rent_room_charge * @rentals.people * (@rentals.rent_end_day.strftime("%d").to_i - @rentals.rent_start_day.strftime("%d").to_i)
-          = f.hidden_field :rent_room_charge
+        / 隠しフォーム
+    = f.hidden_field :people, :value => @rentals.people
+    = f.hidden_field :rent_room_charge, :value => @rentals.rent_room_charge * @rentals.people * (@rentals.rent_end_day.strftime("%d").to_i - @rentals.rent_start_day.strftime("%d").to_i)
+    = f.hidden_field :rent_room_name, :value => @rentals.rent_room_name
+    = f.hidden_field :rent_room_intro, :value => @rentals.rent_room_intro
     = f.submit "戻る", name: 'back', class: 'btn btn-primary'
     = f.submit "予約する", class: 'btn btn-primary'
