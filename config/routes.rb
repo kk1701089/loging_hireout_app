@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :users_plofile
   # 借りる機能に関するルーティング
   get 'confirm/:id', to: 'rentals#confirm', as: 'rental'
   post 'rental/:id', to: 'rentals#create', as: 'create_rental'
